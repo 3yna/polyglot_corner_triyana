@@ -1,0 +1,800 @@
+/* 1. WARNA & RESET */
+:root {
+  --triyana_bg: #fdf8f3;
+  --triyana_utama: #2d2a5e;
+  --triyana_aksen: #ff9933;
+  --triyana_teks: #2b2b2b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', 'Noto Sans', sans-serif;
+  background: var(--triyana_bg);
+  color: var(--triyana_teks);
+  line-height: 1.6;
+}
+
+/* 2. HEADER & MENU */
+#triyana_header {
+  background: var(--triyana_utama);
+  color: white;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.triyana_logo {
+  font-size: 1.5rem;
+}
+
+.triyana_logo a {
+  color: white;
+  text-decoration: none;
+}
+
+.triyana_hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+.triyana_menu {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.triyana_menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.triyana_menu a:hover {
+  background: var(--triyana_aksen);
+}
+
+.triyana_menu a.triyana_aktif {
+  background: var(--triyana_aksen);
+}
+
+/* 3. HERO LAYAR PENUH (HOME) */
+.triyana_hero_utama {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #2d2a5e, #ff9933);
+  color: white;
+}
+
+.triyana_hero_isi {
+  max-width: 760px;
+}
+
+.triyana_hero_isi > * {
+  opacity: 0;
+  animation: triyana_muncul 0.9s ease forwards;
+}
+
+.triyana_hero_isi > *:nth-child(1) { animation-delay: 0.1s; }
+.triyana_hero_isi > *:nth-child(2) { animation-delay: 0.4s; }
+.triyana_hero_isi > *:nth-child(3) { animation-delay: 0.7s; }
+.triyana_hero_isi > *:nth-child(4) { animation-delay: 1s; }
+
+@keyframes triyana_muncul {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.triyana_sapaan {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.triyana_hero_utama h2 {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+}
+
+.triyana_hero_cerita {
+  font-size: 1.1rem;
+  margin-bottom: 28px;
+}
+
+.triyana_hero_tombol {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* 4. SECTION HALAMAN SCROLL */
+.triyana_section {
+  padding: 80px 20px;
+  scroll-margin-top: 70px;
+}
+
+.triyana_section_alt {
+  background: white;
+}
+
+.triyana_section_isi {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.triyana_section_judul {
+  text-align: center;
+  color: var(--triyana_utama);
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* Tentang (di dalam index) */
+.triyana_tentang_grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.triyana_foto_tentang {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.triyana_tentang_grid p {
+  margin-bottom: 14px;
+}
+
+/* Animasi muncul saat discroll */
+.triyana_reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.triyana_reveal.triyana_tampil {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 5. KARTU NEGARA (HOME)  */
+.triyana_negara_wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.triyana_kartu {
+  background: white;
+  padding: 40px 20px;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  border-radius: 12px;
+  border-top: 6px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.triyana_kartu:hover {
+  transform: translateY(-8px);
+}
+
+a.triyana_kartu {
+  display: block;
+  text-decoration: none;
+  color: var(--triyana_teks);
+}
+
+.triyana_bendera {
+  width: 36px;
+  vertical-align: middle;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+
+.triyana_korea   { border-top-color: #cd2e3a; --triyana_warna: #cd2e3a; }
+.triyana_india   { border-top-color: #ff9933; --triyana_warna: #ff9933; }
+.triyana_rusia   { border-top-color: #0039a6; --triyana_warna: #0039a6; }
+.triyana_spanyol { border-top-color: #f1bf00; --triyana_warna: #f1bf00; }
+
+/* 6. FOOTER */
+#triyana_footer {
+  background: var(--triyana_utama);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+/* 7. JUDUL HALAMAN (Negara, Belajar, Aksara, Kuis) */
+.triyana_judul_halaman {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+.triyana_judul_halaman h2 {
+  color: var(--triyana_utama);
+  font-size: 2rem;
+}
+
+/* 8. HALAMAN NEGARA (DENGAN FOTO) */
+.triyana_subnav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 20px 30px;
+}
+
+.triyana_pill {
+  text-decoration: none;
+  color: var(--triyana_teks);
+  background: white;
+  font-weight: 600;
+  padding: 8px 22px;
+  border-radius: 30px;
+  border: 2px solid var(--triyana_warna);
+  transition: background 0.3s, color 0.3s;
+}
+
+.triyana_pill:hover {
+  background: var(--triyana_warna);
+  color: white;
+}
+
+.triyana_negara_sec {
+  max-width: 1000px;
+  margin: 0 auto 70px;
+  padding: 0 20px;
+  scroll-margin-top: 80px;
+}
+
+/* Banner foto utama */
+.triyana_banner {
+  position: relative;
+  height: 340px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--triyana_warna), var(--triyana_utama));
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.triyana_banner > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.triyana_banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0) 60%);
+}
+
+.triyana_banner_isi {
+  position: absolute;
+  left: 28px;
+  bottom: 22px;
+  z-index: 2;
+  color: white;
+}
+
+.triyana_banner_isi h3 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+/* Perkenalan & fakta cepat */
+.triyana_perkenalan {
+  background: white;
+  margin: 24px 0;
+  padding: 26px 28px;
+  border-radius: 14px;
+  border-left: 6px solid var(--triyana_warna);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.triyana_fakta_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.triyana_fakta_item {
+  background: var(--triyana_bg);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.triyana_fakta_item span {
+  display: block;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.triyana_fakta_item strong {
+  color: var(--triyana_utama);
+}
+
+.triyana_link_belajar a {
+  color: var(--triyana_utama);
+  font-weight: 600;
+}
+
+/* Blok foto + keterangan (zig-zag) */
+.triyana_blok {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  align-items: center;
+  margin: 28px 0;
+}
+
+.triyana_blok_foto {
+  height: 270px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--triyana_warna), var(--triyana_utama));
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.triyana_blok_foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.triyana_blok_foto:hover img {
+  transform: scale(1.06);
+}
+
+.triyana_blok_balik .triyana_blok_foto {
+  order: 2;
+}
+
+.triyana_tag {
+  display: inline-block;
+  background: var(--triyana_warna);
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.triyana_blok_teks h4 {
+  color: var(--triyana_utama);
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.triyana_kredit {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #888;
+  padding: 0 20px 30px;
+}
+
+/* 9. HALAMAN BELAJAR (TABEL) */
+.triyana_tabel_wrap {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+  overflow-x: auto;
+}
+
+.triyana_tabel {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.triyana_tabel th {
+  background: var(--triyana_utama);
+  color: white;
+  padding: 14px;
+  text-align: left;
+}
+
+.triyana_tabel td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.triyana_tabel tbody tr:hover {
+  background: #fff3e6;
+}
+
+/* 10. HALAMAN AKSARA */
+.triyana_aksara_wrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.triyana_aksara_kartu {
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  border-top: 6px solid #ccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.triyana_aksara_kartu h3 {
+  color: var(--triyana_utama);
+  margin-bottom: 10px;
+}
+
+.triyana_aksara_kartu p {
+  margin-bottom: 8px;
+}
+
+.triyana_huruf_besar {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--triyana_utama);
+}
+
+/* 11. KONTAK (FORM) & TOMBOL */
+.triyana_form_box {
+  background: white;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.triyana_form_box label {
+  display: block;
+  margin: 14px 0 6px;
+  font-weight: 600;
+  color: var(--triyana_utama);
+}
+
+.triyana_form_box input,
+.triyana_form_box select,
+.triyana_form_box textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.triyana_form_box input:focus,
+.triyana_form_box select:focus,
+.triyana_form_box textarea:focus {
+  outline: none;
+  border-color: var(--triyana_aksen);
+}
+
+.triyana_tombol {
+  margin-top: 18px;
+  background: var(--triyana_utama);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.triyana_tombol:hover {
+  background: var(--triyana_aksen);
+}
+
+a.triyana_tombol {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 0;
+}
+
+.triyana_tombol_outline {
+  background: transparent;
+  border: 2px solid white;
+}
+
+.triyana_tombol_outline:hover {
+  background: white;
+  color: var(--triyana_utama);
+}
+
+#triyana_notif {
+  margin-top: 14px;
+  font-weight: 600;
+}
+
+/* 12. HALAMAN KUIS */
+.triyana_kuis_box {
+  background: white;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 28px 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#triyana_kuis_progress {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+#triyana_kuis_soal {
+  color: var(--triyana_utama);
+  margin-bottom: 16px;
+}
+
+.triyana_opsi {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  background: #f5f5f5;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.triyana_opsi:hover:not(:disabled) {
+  background: #fff3e6;
+}
+
+.triyana_opsi.triyana_benar {
+  background: #d4f5dd;
+  border-color: #2e9e57;
+}
+
+.triyana_opsi.triyana_salah {
+  background: #fadadd;
+  border-color: #d64545;
+}
+
+#triyana_kuis_feedback {
+  margin: 12px 0;
+  font-weight: 600;
+  min-height: 24px;
+}
+
+#triyana_kuis_next:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+#triyana_kuis_hasil {
+  display: none;
+  text-align: center;
+}
+
+#triyana_kuis_skor {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 14px 0;
+  color: var(--triyana_utama);
+}
+
+/*  13. RESPONSIVE (HP & TABLET) - HARUS PALING BAWAH  */
+@media (max-width: 768px) {
+  #triyana_header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .triyana_hamburger {
+    display: block;
+  }
+
+  .triyana_menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .triyana_menu.triyana_buka {
+    display: flex;
+  }
+
+  .triyana_menu a {
+    padding: 10px;
+  }
+
+  .triyana_hero_utama h2 {
+    font-size: 2rem;
+  }
+
+  .triyana_judul_halaman h2,
+  .triyana_section_judul {
+    font-size: 1.6rem;
+  }
+
+  .triyana_section {
+    padding: 60px 16px;
+  }
+
+  .triyana_tentang_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .triyana_form_box,
+  .triyana_kuis_box {
+    padding: 20px;
+  }
+
+  .triyana_banner {
+    height: 240px;
+  }
+
+  .triyana_banner_isi h3 {
+    font-size: 1.7rem;
+  }
+
+  .triyana_blok {
+    grid-template-columns: 1fr;
+  }
+
+  .triyana_blok_balik .triyana_blok_foto {
+    order: 0;
+  }
+
+  .triyana_blok_foto {
+    height: 220px;
+  }
+}
+/* TRANSISI ANTAR HALAMAN */
+main,
+footer {
+  animation: triyana_halaman_masuk 0.7s ease both;
+}
+
+@keyframes triyana_halaman_masuk {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+body {
+  transition: opacity 0.35s ease;
+}
+
+body.triyana_keluar {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main,
+  footer {
+    animation: none;
+  }
+
+  body {
+    transition: none;
+  }
+}
+/*  KARTU SOSMED (KONTAK)  */
+.triyana_kontak_intro {
+  text-align: center;
+  max-width: 560px;
+  margin: -10px auto 28px;
+  color: #555;
+}
+
+.triyana_sosmed_wrap {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  max-width: 640px;
+  margin: 0 auto 32px;
+}
+
+.triyana_sosmed_kartu {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1 1 260px;
+  background: white;
+  padding: 16px 20px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--triyana_teks);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.triyana_sosmed_kartu:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.16);
+}
+
+.triyana_sosmed_ikon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.triyana_sosmed_ikon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.triyana_sosmed_ig .triyana_sosmed_ikon {
+  background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+}
+
+.triyana_sosmed_mail .triyana_sosmed_ikon {
+  background: #ea4335;
+}
+
+.triyana_sosmed_teks {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.triyana_sosmed_teks strong {
+  color: var(--triyana_utama);
+}
+
+.triyana_sosmed_teks small {
+  color: #777;
+  word-break: break-all;
+}
